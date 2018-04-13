@@ -26,6 +26,17 @@ public class Ingredient {
 	private Recipe recipe;
 	
 
+	public Ingredient() {
+		super();
+	}
+
+	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+		this.description = description;
+		this.amount = amount;
+		this.uom = uom;
+		this.recipe = recipe;
+	}
+
 	public UnitOfMeasure getUom() {
 		return uom;
 	}

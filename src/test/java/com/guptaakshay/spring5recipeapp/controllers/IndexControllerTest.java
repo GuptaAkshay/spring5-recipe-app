@@ -37,6 +37,7 @@ public class IndexControllerTest {
 		indexController = new IndexController(recipeService);
 	}
 	
+	// spring mock mvc
 	@Test
 	public void testMockMvc() throws Exception{
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
@@ -47,6 +48,7 @@ public class IndexControllerTest {
 		
 	}
 	
+	//test using argumentcaptor 
 	@Test
 	public void getIndexPage() {
 		//given 

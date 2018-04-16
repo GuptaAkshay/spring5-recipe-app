@@ -61,6 +61,7 @@ public class IndexControllerTest {
 		
 		Mockito.when(recipeService.getRecipes()).thenReturn(recipes);
 		
+		@SuppressWarnings("unchecked")
 		ArgumentCaptor<Set<Recipe>> argumentCaptor =  ArgumentCaptor.forClass(Set.class);
 		
 		//when

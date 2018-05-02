@@ -2,6 +2,7 @@ package com.guptaakshay.spring5recipeapp.converters;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 
 import com.guptaakshay.spring5recipeapp.commands.RecipeCommand;
 import com.guptaakshay.spring5recipeapp.domain.Category;
@@ -9,6 +10,7 @@ import com.guptaakshay.spring5recipeapp.domain.Recipe;
 
 import lombok.Synchronized;
 
+@Component
 public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand>{
 
 	private final CategoryToCategoryCommand categoryConveter;

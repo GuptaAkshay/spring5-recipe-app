@@ -25,9 +25,12 @@
 								<h6>Categories:</h6>
 							</div>
 							<div class="col-md-8">
-								<span class="badge badge-secondary">cat one</span> <span
-									class="badge badge-secondary">cat two</span> <span
-									class="badge badge-secondary">cat three</span>
+								<div>
+								<span th:remove="all" class="badge badge-secondary">cat one</span> 
+								<span th:remove="all" class="badge badge-secondary">cat two</span> 
+								<span th:each="category: ${recipe.categories}" th:text="${category.getDescription()}" 
+								class="badge badge-secondary">cat three</span>
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -35,13 +38,13 @@
 								<h6>Prep Time:</h6>
 							</div>
 							<div class="col-md-2">
-								<p>30 min</p>
+								<p th:text="${recipe.prepTime}+' min'">30 min</p>
 							</div>
 							<div class="col-md-2">
 								<h6>Difficulty:</h6>
 							</div>
 							<div class="col-md-6">
-								<p>Easy</p>
+								<p th:text="${recipe.difficulty}">Easy</p>
 							</div>
 						</div>
 						<div class="row">
@@ -49,13 +52,13 @@
 								<h6>Cooktime:</h6>
 							</div>
 							<div class="col-md-2">
-								<p>30 min</p>
+								<p th:text="${recipe.cookTime}+' min'">30 min</p>
 							</div>
 							<div class="col-md-2">
 								<h6>Servings:</h6>
 							</div>
 							<div class="col-md-6">
-								<p>4</p>
+								<p th:text="${recipe.serving}">4</p>
 							</div>
 						</div>
 						<div class="row">
@@ -63,13 +66,13 @@
 								<h6>Source:</h6>
 							</div>
 							<div class="col-md-2">
-								<p>30 min</p>
+								<p th:text="${recipe.source}">30 min</p>
 							</div>
 							<div class="col-md-2">
 								<h6>URL:</h6>
 							</div>
 							<div class="col-md-6">
-								<p>http://www.example.com</p>
+								<p th:text="${recipe.url}">http://www.example.com</p>
 							</div>
 						</div>
 					</div>
@@ -82,9 +85,10 @@
 						<div class="row">
 							<div class="col-md-12">
 								<ul>
-									<li>1 Cup of milk</li>
-									<li>1 Teaspoon of chocolate</li>
-									<li>1 Teaspoon of Sugar</li>
+									<li th:remove="all" >1 Cup of milk</li>
+									<li th:remove="all" >1 Teaspoon of chocolate</li>
+									<li th:each="ingredient: ${recipe.ingredients}" 
+									th:text="${(ingredient.getAmount()+' '+ ingredient.uom.getUom() +' - '+ ingredient.getDescription())}">1 Teaspoon of Sugar</li>
 								</ul>
 							</div>
 						</div>
@@ -125,7 +129,7 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
-								<p >Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+								<p th:text="${recipe.notes.recipeNotes}">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 									Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
 									natoque penatibus et magnis dis parturient montes, nascetur
 									ridiculus mus. Donec quam felis, ultricies nec, pellentesque
